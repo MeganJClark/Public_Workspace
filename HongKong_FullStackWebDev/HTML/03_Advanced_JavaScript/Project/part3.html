@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    img{
+      position: absolute;
+    }
+
+    #leftDiv {
+      height: 700px;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+    }
+
+    #rightDiv {
+      height: 700px;
+      border-top: 1px solid black;
+      border-left: 1px solid black;
+      border-bottom: 1px solid black;
+    }
+  </style>
+
+</head>
+
+<body onload="generateFaces()">
+  <div class="container">
+    <h1 id="title">Matching Game</h1>
+    <p>Find and click on the extra smiley face on the left</p>
+    <div class="row">
+      <div id="leftDiv" class="col-md-6">
+
+      </div>
+      <div id="rightDiv" class="col-md-6"></div>
+    </div>
+    <!--end row -->
+  </div>
+
+  <!-- end container -->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script>
+    var numberOfFaces = 5;
+    var mLeftDiv = document.getElementById('leftDiv');
+    var mRightDiv = document.getElementById('rightDiv');
+    function generateFaces() {
+      // generate faces for left div
+      for(var i = 0; i < numberOfFaces; i++){
+        // create image node using createElement()
+        var newNode = document.createElement("IMG");
+        // set img src to smile.png
+        newNode.setAttribute('src', 'smile.png');
+        // because we're using a dynamically sized div, get div width and height and subtract the size of the image
+        var divHeight = mLeftDiv.clientHeight - 100;
+        var divWidth = mLeftDiv.clientWidth-100;
+        // generate random numbers for x and y values
+        var x = Math.floor(Math.random() * divWidth)+ "px";
+        var y = Math.floor(Math.random() * divHeight)+ "px";
+        console.log("X: " + x);
+        console.log("Y: " + y);
+        // set style parameters to position the image within the div
+        newNode.style.top = y;
+        newNode.style.left = x;
+        // add the newly created image to the leftDiv using appendChild()
+        mLeftDiv.appendChild(newNode);
+      }
+
+      //After all the images have been created and added to the leftDiv,
+      //use cloneNode(true) to copy the leftDiv e.g.
+      var leftSideImages = leftDiv.cloneNode(true);
+      //Then, delete the last child of leftSideImages
+      leftSideImages.removeChild(leftSideImages.lastChild);
+      //Then, add leftSideImages to the rightDiv
+      rightDiv.appendChild(leftSideImages);
+    }
+  </script>
+</body>
+
+</html>
