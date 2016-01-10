@@ -22,6 +22,10 @@
       text-align: center;
     }
 
+    img{
+      position: absolute;
+    }
+    
     #leftDiv {
       height: 700px;
       border-top: 1px solid black;
@@ -44,30 +48,7 @@
     <p>Find and click on the extra smiley face on the left</p>
     <div class="row">
       <div id="leftDiv" class="col-md-6">
-        <script>
-          var numberOfFaces = 5;
 
-          function generateFaces() {
-            var mLeftDiv = document.getElementById('leftDiv');
-            // create image node using createElement()
-            var newNode = document.createElement("IMG");
-            // set img src to smile.png
-            newNode.setAttribute('src', 'smile.png');
-            // because we're using a dynamically sized div, get div width and height
-            var divHeight = mLeftDiv.clientHeight;
-            var divWidth = mLeftDiv.clientWidth;
-            // generate random numbers for x and y values
-            var x = Math.floor(Math.random() * divWidth) + "px";
-            var y = Math.floor(Math.random() * divHeight) + "px";
-            console.log("x: " + x);
-            console.log("y: " + y);
-            // set style.left to set the x positon of the image to a random value within the width of the div
-            document.getElementById("newNode").style.top = y;
-            console.log("y location:" + newNode.getAttribute("top"));
-            // add the newly created image to the leftDiv using appendChild()
-            mLeftDiv.appendChild(newNode);
-          }
-        </script>
       </div>
       <div id="rightDiv" class="col-md-6"></div>
     </div>
@@ -79,6 +60,31 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script>
+    var numberOfFaces = 5;
+    var mLeftDiv = document.getElementById('leftDiv');
+    function generateFaces() {
+      for(var i = 0; i < numberOfFaces; i++){
+        // create image node using createElement()
+        var newNode = document.createElement("IMG");
+        // set img src to smile.png
+        newNode.setAttribute('src', 'smile.png');
+        // because we're using a dynamically sized div, get div width and height and subtract the size of the image
+        var divHeight = mLeftDiv.clientHeight - 100;
+        var divWidth = mLeftDiv.clientWidth-100;
+        // generate random numbers for x and y values
+        var x = Math.floor(Math.random() * divWidth)+ "px";
+        var y = Math.floor(Math.random() * divHeight)+ "px";
+        console.log("X: " + x);
+        console.log("Y: " + y);
+        // set style parameters to position the image within the div
+        newNode.style.top = y;
+        newNode.style.left = x;
+        // add the newly created image to the leftDiv using appendChild()
+        mLeftDiv.appendChild(newNode);
+      }
+    }
+  </script>
 </body>
 
 </html>
