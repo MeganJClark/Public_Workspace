@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Megan Clark">
+    <title>Dating Website</title>
+
+    <style>
+    body{
+      font-family: sans-serif;
+    }
+    fieldset{
+      background: lightyellow;
+      border:10px solid yellow;
+      margin-bottom:10px;
+      width:720px;
+    }
+    label{
+      width:180px;
+      display:inline-block;
+      text-align: right;
+      vertical-align: top;
+    }
+    .customLabel{
+      width: auto;
+    }
+    .redblock{
+      background: red;
+
+    }
+    .purpleblock{
+      background: purple;
+
+    }
+    .rangeBlock{
+      display: inline-block;
+      width: 60px;
+      text-align: center;
+      vertical-align: top;
+      color: white;
+      padding: 1 6 0 6;
+    }
+}
+    </style>
+  </head>
+
+  <body>
+    <h1>Please Enter Your Details For Our Dating Website!</h1>
+    <form action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" enctype="multipart/form-data" method="post">
+
+      <fieldset>
+        <legend>Your Face</legend>
+        <label for="avatar">Your image:</label>
+        <input type="file" id="avatar" name="avatar" required>
+        <br>
+        <label for="image">Image preview:</label>
+        <!--TODO Image preview goes here -->
+      </fieldset>
+
+      <fieldset>
+        <legend>Your General Details</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+        <br>
+
+        <label for="gender">Gender:</label>
+        <input type="radio" id="gender" name="gender" value="Male" required><span  class="customLabel">Male</span>
+        <input type="radio" id="gender" name="gender" value="Female" required><span  class="customLabel">Female</span>
+        <br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="0" max="99" step="1" value="18" required>
+        <br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob">
+        <br>
+
+        <label for="color">Favorite color:</label>
+        <input type="color" id="color" name="color">
+        <br>
+
+        <label for="country">Which country:</label>
+        <select id="country" name="country">
+          <option value="none">No selection</option>
+          <option value="CAN">Canada</option>
+          <option value="JAP">Japan</option>
+          <option value="hk">Hong Kong</option>
+          <option value="UK">United Kingdom</option>
+          <option value="USA">United States</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your Indicators</legend>
+        <label for="height">Height:</label>
+        <span class="rangeBlock redblock">Short</span>
+        <input type="range" min="0" max="100" step="5" value="50" name="height" id="height">
+        <span class="rangeBlock purpleblock">Tall</span>
+        <br>
+
+        <label for="salary">Salary:</label>
+        <span class="rangeBlock redblock">Poor</span>
+        <input type="range" min="0" max="100" step="5" value="50" name="salary" id="salary">
+        <span class="rangeBlock purpleblock">Rich</span>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your Contact Information</legend>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        </br>
+
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="tel" name="tel">
+        <br>
+
+        <label for="address">Address:</label>
+        <textarea rows="3" cols="60" id="address" name="address"></textarea>
+        </br>
+
+        <label for="contact">Method to contact you:</label>
+        <input type="checkbox" id="contact" name="contact" value="email"><span  class="customLabel">Email</span>
+
+        <input type="checkbox" id="contact" name="contact" value="whatsapp"><span class="customLabel">Whatsapp</span>
+
+        <input type="checkbox" id="contact" name="contact" value="chat"><span class="customLabel">In-app chat</span>
+      </fieldset>
+
+      <input type="submit" value="Submit">
+
+    </form>
+  </body>
+
+</html>
