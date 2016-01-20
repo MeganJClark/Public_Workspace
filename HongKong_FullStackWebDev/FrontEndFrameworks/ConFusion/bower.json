@@ -1,0 +1,30 @@
+{
+  "name": "ConFusion",
+  "homepage": "https://github.com/MeganJClark/Public_Workspace",
+  "authors": [
+    "MeganJClark <mjclark505@gmail.com>"
+  ],
+  "description": "website for FrontEndFrameworks course",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "ConFusion",
+    "Hong",
+    "Kong",
+    "University",
+    "Coursera"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0"
+  }
+}
